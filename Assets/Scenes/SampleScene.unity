@@ -361,8 +361,8 @@ Transform:
   m_GameObject: {fileID: 910222836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0009, y: -3.9697, z: 0}
-  m_LocalScale: {x: 21.474371, y: 0.72493356, z: 1}
+  m_LocalPosition: {x: 0.00089995, y: -3.9697, z: 0}
+  m_LocalScale: {x: 25.500816, y: 0.72493356, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 1102563341}
   - component: {fileID: 1102563340}
   m_Layer: 0
-  m_Name: SFX_Source
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
