@@ -13,11 +13,15 @@ public class PlayerController2 : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isground;
-    
+
+    public AudioClip Jump;
+// AudioSource sfxPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+// sfxPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class PlayerController2 : MonoBehaviour
 
     private void jump()
     {
+// sfxPlayer.PlayOneShot(Jump);
         rb.velocity = new Vector2(rb.velocity.x, jumpforce);
     }
 
