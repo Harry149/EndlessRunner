@@ -15,13 +15,13 @@ public class PlayerController2 : MonoBehaviour
     private bool isground;
 
     public AudioClip Jump;
-    AudioSource sfxPlayer;
+    public AudioSource sfxPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sfxPlayer = GetComponent<AudioSource>();
+        //sfxPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
