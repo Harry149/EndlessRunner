@@ -16,23 +16,23 @@ public class PlayerController2 : MonoBehaviour
 
     public AudioClip Jump;
     public AudioSource sfxPlayer;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         //sfxPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         rb.velocity = new Vector2(movespeed, rb.velocity.y);
 
         isground = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
-
+        anim.SetBool("IsOnGround", isground);
         if (isground && Input.GetKeyDown(KeyCode.Space))
         {
             jump();
