@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2457929629319917420}
   - component: {fileID: 2584606801728002864}
   - component: {fileID: 9069500821719132201}
+  - component: {fileID: -1990845580631344760}
   m_Layer: 3
   m_Name: MediumPlatform
   m_TagString: CleanUp
@@ -26,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3424226064110675893}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9673, y: 3.48, z: 0}
-  m_LocalScale: {x: 5.8281302, y: 0.72493356, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -33.07, y: -15.691148, z: 0}
+  m_LocalScale: {x: 5.82813, y: 0.72493356, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1990845580631344760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424226064110675893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e770f986e63dd4985ebcc059f42158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 3367792338556827429, guid: 6054a3b290753d54bad563fde67efb4e, type: 3}
+  coinOffset: {x: 0, y: 1}
