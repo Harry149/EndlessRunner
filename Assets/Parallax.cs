@@ -22,6 +22,6 @@ public class Parallax : MonoBehaviour
     void Update()
     {
         float offset = (player.transform.position.x - playerStartPos) * speed;
-        rend.material.SetTextureOffset("_MainTex", new Vector2(offset, 0.5f));
+        rend.material.SetTextureOffset("_MainTex", new Vector2(offset, 0f));
     }
 }
