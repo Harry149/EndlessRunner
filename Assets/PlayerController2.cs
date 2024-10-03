@@ -17,6 +17,7 @@ public class PlayerController2 : MonoBehaviour
     public AudioClip Jump;
     public AudioSource sfxPlayer;
     Animator anim;
+    bool DoubleJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,15 @@ public class PlayerController2 : MonoBehaviour
 
         isground = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
         anim.SetBool("IsOnGround", isground);
-        if (isground && Input.GetKeyDown(KeyCode.Space))
+        if (isground && Input.GetKeyDown(KeyCode.Space) && DoubleJump != true)
         {
             jump();
+            DoubleJump = true;
+        }
+        else if (DoubleJump == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            jump();
+            DoubleJump = false;
         }
     }
 
