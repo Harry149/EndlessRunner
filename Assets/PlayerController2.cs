@@ -17,7 +17,8 @@ public class PlayerController2 : MonoBehaviour
     public AudioClip Jump;
     public AudioSource sfxPlayer;
     Animator anim;
-    bool DoubleJump = true;
+    bool DoubleJump = false;
+    int num = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(num - 1);
         rb.velocity = new Vector2(movespeed, rb.velocity.y);
 
         isground = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
