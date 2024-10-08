@@ -10,7 +10,7 @@ public class DeathManager : MonoBehaviour
     {
         DeathScreemCanvas.SetActive(true);
 
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
