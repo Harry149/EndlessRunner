@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController2 : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController2 : MonoBehaviour
     public Transform groundCheckPoint;
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
+    private Text score;
+    private int cscore;
 
     private Rigidbody2D rb;
     private bool isground;
@@ -24,6 +27,8 @@ public class PlayerController2 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        cscore = 0;
+        
         //sfxPlayer = GetComponent<AudioSource>();
     }
 
@@ -31,6 +36,8 @@ public class PlayerController2 : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(movespeed, rb.velocity.y);
+        score.text = cscore + 1;
+        
 
         isground = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
         anim.SetBool("IsOnGround", isground);
