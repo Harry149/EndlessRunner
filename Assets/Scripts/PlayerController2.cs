@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,8 @@ public class PlayerController2 : MonoBehaviour
     public Transform groundCheckPoint;
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
-    private Text score;
-    private int cscore;
+    public Text score;
+    public GameObject player;
 
     private Rigidbody2D rb;
     private bool isground;
@@ -21,24 +22,25 @@ public class PlayerController2 : MonoBehaviour
     public AudioSource sfxPlayer;
     Animator anim;
     bool DoubleJump = false;
+    public float cscore = 0;
+    float num = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        cscore = 0;
-        
         //sfxPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(movespeed, rb.velocity.y);
-        score.text = cscore + 1;
+        num = player.transform.position.x / 5;
+        cscore = cscore + 1;
+        AddScore(cscore);
         
-
+        rb.velocity = new Vector2(movespeed, rb.velocity.y);
         isground = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
         anim.SetBool("IsOnGround", isground);
         if (isground && Input.GetKeyDown(KeyCode.Space))
@@ -57,6 +59,15 @@ public class PlayerController2 : MonoBehaviour
     {
         sfxPlayer.PlayOneShot(Jump);
         rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+    }
+
+    public void AddScore(float value)
+    {
+        if (player.transform.position.x > 0)
+        {
+            float scoree = value;
+            score.text = (Math.Round(scoree)).ToString();
+        }       
     }
 
     private void OnDrawGizmosSelected()
