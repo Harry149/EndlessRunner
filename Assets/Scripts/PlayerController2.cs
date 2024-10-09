@@ -24,6 +24,7 @@ public class PlayerController2 : MonoBehaviour
     bool DoubleJump = false;
     public float cscore = 0;
     float num = 0;
+    bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +37,13 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        num = player.transform.position.x / 5;
-        cscore = cscore + 1;
-        AddScore(cscore);
+        //num = (player.transform.position.x / 5);
+        //cscore = cscore + (num / 1000);
+        if (active == false)
+        {
+            StartCoroutine(scoretimer());
+            active = true;
+        }
         
         rb.velocity = new Vector2(movespeed, rb.velocity.y);
         isground = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
@@ -65,8 +70,9 @@ public class PlayerController2 : MonoBehaviour
     {
         if (player.transform.position.x > 0)
         {
-            float scoree = value;
-            score.text = (Math.Round(scoree)).ToString();
+            cscore += value;
+            float scoree = cscore + value;
+            score.text = cscore.ToString();
         }       
     }
 
@@ -74,5 +80,12 @@ public class PlayerController2 : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheckPoint.position, checkRadius);
+    }
+    IEnumerator scoretimer()
+    {
+        yield return new WaitForSeconds(1);
+        AddScore(1);
+        active = false;
+
     }
 }

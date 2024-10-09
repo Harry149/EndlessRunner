@@ -17,7 +17,7 @@ public class CoinCollect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerController.cscore = playerController.cscore + 30;
+            playerController.AddScore(30);
             print(playerController.cscore);
             Destroy(gameObject);
             
